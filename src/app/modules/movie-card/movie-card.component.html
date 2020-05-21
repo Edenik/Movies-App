@@ -1,0 +1,16 @@
+<nb-card class="card" accent="info">
+    <nb-card-header>
+        <h5>{{name}}</h5>
+    </nb-card-header>
+    <nb-card-body>
+        <img title="{{name}} poster" (click)="showPoster(imgURL)" src="{{imgURL}}" alt="{{name}} poster"
+            nbTooltip="Click to expand image" nbTooltipStatus="primary" style="border-radius:10px;">
+        <div class="movie-prop">
+            <p>URL: <a href="{{imdbURL}}" target="_blank">IMDB.com</a></p>
+            <p class="cat">Categories: <span *ngFor="let cat of categories"> {{cat}},</span></p>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button nbButton status="danger" class="spacer" (click)="delete(name)"> Delete</button>
+    </nb-card-footer>
+</nb-card>

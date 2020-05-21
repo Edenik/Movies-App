@@ -1,0 +1,21 @@
+
+<nb-layout>
+    <nb-layout-header fixed>
+        <h2 style="color: #3366ff;">
+            Movies App
+        </h2>
+    </nb-layout-header>
+    <nb-layout-column class="colored-column-basic">
+        <div class="spacer"></div>
+        <nb-card accent="primary" style="width: 300px; margin: 0 auto;">
+            <nb-card-header>In order to use this app, please Sign In!</nb-card-header>
+            <nb-card-body style=" margin: 0 auto;">
+                <button nbButton (click)="loginWithGoogle()" status="danger"><nb-icon icon="google-outline"></nb-icon>  Sign in with Google</button>
+            </nb-card-body>
+          </nb-card>
+
+
+    </nb-layout-column>
+  </nb-layout>
+
+

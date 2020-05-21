@@ -1,0 +1,45 @@
+<nb-card class="card" accent="primary" >
+    <nb-card-header>
+        <h4>Add Movie</h4>
+    </nb-card-header>
+    <nb-card-body style="margin: 0 auto;">
+        <form (ngSubmit)="onAddItem(addForm)" #addForm="ngForm">
+            <div>
+                <label for="name">Movie Name:</label>
+                <nb-icon icon="question-mark-circle-outline" nbTooltip="Example: Joker" nbTooltipStatus="primary" status="primary"></nb-icon>
+                <input nbInput type="text" id="name" class="form-control" name="name" maxlength="30" ngModel required
+                    placeholder="*required">
+                <p style="color: red;" *ngIf="movieExist">Error: there is movie with this name</p>
+            </div>
+            <div>
+                <ng-multiselect-dropdown [placeholder]="'Categories *required'" [settings]="dropdownSettings"
+                    [data]="dropdownList" (onSelect)="onItemSelect($event)" (onDeSelect)="onItemDeSelect($event)"
+                    (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll()" id='categories'
+                    name="categories" ngModel required class="form-control">
+                </ng-multiselect-dropdown>
+            </div>
+            <div>
+                <label for="imdbLink">IMDB LINK:</label>
+                <nb-icon icon="question-mark-circle-outline" nbTooltip="Example: https://www.imdb.com/title/tt7286456/?ref_=fn_al_tt_1" nbTooltipStatus="primary" status="primary"></nb-icon>
+                <input nbInput type="text" id="imdbLink" class="form-control" name="imdbLink" ngModel required
+                    placeholder="*required">
+                <p style="color: red;" *ngIf="linkError">Error: please enter correct imdb link</p>
+            </div>
+            <div>
+                <label for="imgURL">POSTER URL:</label>
+                <nb-icon icon="question-mark-circle-outline" nbTooltip="Example: 
+                https://m.media-amazon.com/images/M/MV5BNGVjNWI4Z
+                GUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2Y
+                mI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ
+                @@._V1_UX182_CR0,0,182,268_AL_.jpg" nbTooltipStatus="primary" status="primary"></nb-icon>
+                <input nbInput type="text" id="imgURL" class="form-control" name="imgURL" ngModel required
+                    placeholder="*required">
+                <p style="color: red;" *ngIf="posterError">Error: please enter correct imdb poster link</p>
+            </div>
+            <div style="margin-top: 10px; border-top: solid 1px #e4e9f2; padding-top: 10px; ">
+                <button nbButton status="danger" (click)="cancel()">Cancel</button>
+                <button nbButton status="success" type="submit" [disabled]="!addForm.valid">Submit</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

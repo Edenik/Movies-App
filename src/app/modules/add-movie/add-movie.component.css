@@ -1,0 +1,16 @@
+.card{
+    width: 400px;
+    min-height: 360px;
+    max-height: 500px;
+}
+label, nb-icon{
+    margin-right: 3px;
+}
+
+div{
+    margin-top: 10px;
+}
+
+button{
+    margin: 5px;
+}

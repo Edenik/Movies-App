@@ -1,0 +1,47 @@
+<nb-layout>
+    <nb-layout-header fixed>
+        <nb-icon style="color: #3366ff;" icon="menu-outline" (click)="toggle()" class="toggle"></nb-icon>
+        <h2 style="color: #3366ff;">
+            Movies App
+        </h2>
+    </nb-layout-header>
+
+
+    <nb-sidebar style="padding: 0;">
+        <div *ngFor="let user of userInfo"
+            style="text-align: center; border-bottom: solid 1px #edf1f7; margin-bottom: 10px;">
+            <img class="z-depth-4" src="{{user.photoURL}} " style="height: 70px; border-radius: 50%; "
+                referrerpolicy="no-referrer">
+            <p>Welcome, {{user.displayName}}</p>
+        </div>
+
+
+        <button *ngFor="let item of itemsMenu" nbButton fullWidth (click)="menuClick(item.title)" shape="round" status="info"
+            style="margin-bottom: 5px;">
+            <nb-icon icon="{{item.icon}}"></nb-icon> {{item.title}}
+        </button>
+        <button nbButton fullWidth (click)="logout()" shape="round"  status="primary">
+            <nb-icon icon="log-out-outline"></nb-icon>Logout
+        </button>
+
+    </nb-sidebar>
+
+    <nb-layout-column fxLayout="row wrap" class="colored-column-basic">
+
+        <app-movie-card style="margin:10px" *ngFor="let movie of moviesList" [name]="movie.name" [imgURL]="movie.imgURL"
+            [imdbURL]="movie.imdbURL" [categories]="movie.categories" [user]="userMail"></app-movie-card>
+
+
+        <h2 *ngIf="error">Add movies!</h2>
+
+
+
+        <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="timer" [fullScreen]="true">
+            <p style="color: white"> Loading... </p>
+        </ngx-spinner>
+
+
+    </nb-layout-column>
+
+
+</nb-layout>

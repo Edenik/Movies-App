@@ -1,0 +1,55 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.movie-prop {
+  display: inline-block;
+
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 150px;
+}
+
+.card {
+  height: 470px;
+  width: 370px;
+}
+
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.toggle{
+    display: none;
+}
+
+img{
+  cursor: pointer;
+}
+@media screen and (max-width: 992px) {
+  .card {
+    height: 470px;
+    width: 350px;
+  }
+
+  .movie-prop {
+    display: block;
+    position: relative;
+    width: fit-content;
+  }
+
+  .toggle{
+      display: inline;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card {
+    height: 470px;
+    width: 300px;
+  }
+
+}
